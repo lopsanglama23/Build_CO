@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="BuildCo — Premium construction material supplier. Cement, steel, aggregates, timber and more. Fast delivery, competitive pricing."/>
+<title>BuildCo — Construction Materials Supplier</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+/* ══════════════════════════════════════════
+   DESIGN SYSTEM — Industrial / Utilitarian
+   ══════════════════════════════════════════ */
+:root {
+  --ink:      #0E0E0E;
+  --steel:    #1C2B3A;
+  --concrete: #3D4A56;
+  --iron:     #6B7A8D;
+  --fog:      #B8C4CE;
+  --chalk:    #F0EDE8;
+  --white:    #FAFAFA;
+  --orange:   #E8621A;
+  --orange2:  #FF7B35;
+  --yellow:   #F5C842;
+  --green:    #2ECC71;
+  --red:      #E74C3C;
+  --r: 4px;
+}
+
+*,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Barlow', sans-serif;
+  background: var(--white);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--chalk); }
+::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 3px; }
+
+/* ══════════════════════════════════════════
+   NAV
+   ══════════════════════════════════════════ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+  background: var(--ink);
+  border-bottom: 3px solid var(--orange);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 5vw; height: 66px;
+}
+.nav-logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 26px; font-weight: 900; letter-spacing: 0.05em;
+  color: var(--white);
+  display: flex; align-items: center; gap: 10px;
+}
+.nav-logo span { color: var(--orange); }
+.nav-links {
+  display: flex; gap: 6px; list-style: none;
+}
+.nav-links a {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; text-decoration: none;
+  color: var(--fog); padding: 8px 14px; border-radius: var(--r);
+  transition: all 0.2s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--orange); background: rgba(232,98,26,0.1); }
+.nav-cta {
+  background: var(--orange); color: white !important;
+  border-radius: var(--r) !important;
+  padding: 9px 18px !important;
+}
+.nav-cta:hover { background: var(--orange2) !important; color: white !important; }
+.hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  cursor: pointer; padding: 4px;
+}
+.hamburger span { width: 24px; height: 2px; background: var(--white); transition: 0.3s; }
+.mobile-menu {
+  display: none; position: fixed; top: 66px; left: 0; right: 0;
+  background: var(--ink); z-index: 998; padding: 20px 5vw 28px;
+  border-bottom: 2px solid var(--orange);
+}
+.mobile-menu.open { display: block; }
+.mobile-menu a {
+  display: block; font-family: 'Barlow Condensed', sans-serif;
+  font-size: 18px; font-weight: 700; text-decoration: none;
+  color: var(--fog); padding: 12px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  text-transform: uppercase; letter-spacing: 0.05em;
+  transition: color 0.2s;
+}
+.mobile-menu a:hover { color: var(--orange); }
+
+/* ══════════════════════════════════════════
+   SECTIONS SHARED
+   ══════════════════════════════════════════ */
+section { padding: 90px 5vw; }
+.section-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--orange);
+  display: flex; align-items: center; gap: 10px; margin-bottom: 12px;
+}
+.section-label::before { content:''; display:block; width:28px; height:2px; background:var(--orange); }
+.section-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 900; line-height: 1.05; color: var(--steel);
+  text-transform: uppercase;
+}
+.section-sub { font-size: 16px; color: var(--concrete); line-height: 1.7; margin-top: 12px; max-width: 560px; }
+
+/* ══════════════════════════════════════════
+   HERO
+   ══════════════════════════════════════════ */
+#hero {
+  padding: 0;
+  background: var(--steel);
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  overflow: hidden;
+  margin-top: 66px;
+}
+.hero-left {
+  padding: 90px 5vw 60px;
+  display: flex; flex-direction: column; justify-content: center;
+  position: relative; z-index: 2;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(232,98,26,0.15); border: 1px solid rgba(232,98,26,0.3);
+  color: var(--orange2); padding: 6px 14px; border-radius: 100px;
+  font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; margin-bottom: 28px; width: fit-content;
+}
+.hero-badge::before { content:'●'; font-size: 8px; color: var(--orange); }
+.hero-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(44px, 6vw, 86px);
+  font-weight: 900; line-height: 0.95;
+  text-transform: uppercase; color: var(--white);
+  margin-bottom: 24px;
+}
+.hero-title em { color: var(--orange); font-style: normal; }
+.hero-desc {
+  font-size: 17px; color: var(--fog); line-height: 1.7;
+  max-width: 460px; margin-bottom: 40px;
+}
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px;
+  font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none;
+  border-radius: var(--r); cursor: pointer; border: 2px solid transparent; transition: all 0.25s; }
+.btn-primary { background: var(--orange); color: white; }
+.btn-primary:hover { background: var(--orange2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(232,98,26,0.4); }
+.btn-outline { background: transparent; color: var(--white); border-color: rgba(255,255,255,0.25); }
+.btn-outline:hover { border-color: var(--orange); color: var(--orange); }
+.hero-stats {
+  display: flex; gap: 36px; margin-top: 56px;
+  padding-top: 36px; border-top: 1px solid rgba(255,255,255,0.1);
+}
+.hstat-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 38px; font-weight: 900; color: var(--orange); line-height: 1;
+}
+.hstat-label { font-size: 12px; color: var(--fog); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.06em; }
+
+.hero-right {
+  position: relative; overflow: hidden;
+  background: linear-gradient(135deg, #162433 0%, #0E1820 100%);
+}
+.hero-right::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(90deg, var(--steel) 0%, transparent 40%);
+}
+.hero-grid-bg {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(232,98,26,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(232,98,26,0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.hero-materials-visual {
+  position: absolute; inset: 0; z-index: 1;
+  display: flex; align-items: center; justify-content: center;
+}
+.material-stack {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  padding: 40px; transform: rotate(-2deg);
+}
+.mat-block {
+  width: 160px; height: 120px; border-radius: 8px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 8px; font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
+  font-size: 14px; color: white; border: 1px solid rgba(255,255,255,0.1);
+  animation: float 4s ease-in-out infinite;
+}
+.mat-block .big-icon { font-size: 36px; }
+.mat-block:nth-child(1) { background: linear-gradient(135deg,#455A64,#263238); animation-delay:0s; }
+.mat-block:nth-child(2) { background: linear-gradient(135deg,#BF360C,#7F2700); animation-delay:0.5s; }
+.mat-block:nth-child(3) { background: linear-gradient(135deg,#37474F,#1C2B3A); animation-delay:1s; }
+.mat-block:nth-child(4) { background: linear-gradient(135deg,#4E342E,#2E1B17); animation-delay:1.5s; }
+
+/* ══════════════════════════════════════════
+   MATERIALS / PRODUCTS
+   ══════════════════════════════════════════ */
+#materials { background: var(--chalk); }
+.filter-tabs {
+  display: flex; gap: 8px; flex-wrap: wrap; margin: 28px 0 36px;
+}
+.filter-tab {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; padding: 8px 18px;
+  border-radius: var(--r); border: 2px solid var(--fog);
+  background: transparent; color: var(--concrete);
+  cursor: pointer; transition: all 0.2s;
+}
+.filter-tab:hover { border-color: var(--orange); color: var(--orange); }
+.filter-tab.active { background: var(--orange); border-color: var(--orange); color: white; }
+
+.materials-search {
+  margin-bottom: 28px;
+}
+.materials-search input {
+  width: 100%; max-width: 440px; padding: 12px 18px;
+  border: 2px solid var(--fog); border-radius: var(--r);
+  font-family: 'Barlow', sans-serif; font-size: 14px;
+  background: white; outline: none; transition: border 0.2s;
+}
+.materials-search input:focus { border-color: var(--orange); }
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+.product-card {
+  background: white; border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.07);
+  overflow: hidden; transition: all 0.3s;
+  position: relative;
+}
+.product-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.12); }
+.product-card.hidden { display: none; }
+
+.product-img {
+  height: 180px; overflow: hidden; position: relative;
+  background: var(--steel);
+}
+.product-img-inner {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 64px; transition: transform 0.4s;
+}
+.product-card:hover .product-img-inner { transform: scale(1.08); }
+.product-badge {
+  position: absolute; top: 12px; left: 12px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; padding: 4px 10px;
+  border-radius: 3px; color: white;
+}
+.badge-instock { background: var(--green); }
+.badge-low { background: var(--yellow); color: var(--ink); }
+.badge-out { background: var(--red); }
+
+.product-body { padding: 18px; }
+.product-category {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--orange); margin-bottom: 6px;
+}
+.product-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px; font-weight: 800; text-transform: uppercase;
+  color: var(--steel); margin-bottom: 4px;
+}
+.product-spec { font-size: 13px; color: var(--iron); margin-bottom: 14px; line-height: 1.5; }
+.product-footer {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: 14px; border-top: 1px solid var(--chalk);
+}
+.product-price {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 26px; font-weight: 900; color: var(--orange);
+}
+.product-unit { font-size: 12px; color: var(--iron); margin-top: 2px; }
+.btn-order {
+  padding: 9px 18px; background: var(--steel); color: white;
+  border: none; border-radius: var(--r);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; cursor: pointer; transition: all 0.2s;
+}
+.btn-order:hover { background: var(--orange); }
+.btn-order:disabled { background: var(--fog); cursor: not-allowed; }
+
+.stock-bar { margin-top: 10px; }
+.stock-text { font-size: 11px; color: var(--iron); margin-bottom: 4px; display: flex; justify-content: space-between; }
+.stock-track { height: 4px; background: var(--chalk); border-radius: 2px; overflow: hidden; }
+.stock-fill { height: 100%; border-radius: 2px; transition: width 0.6s ease; }
+
+/* ══════════════════════════════════════════
+   ORDER TRACKING
+   ══════════════════════════════════════════ */
+#tracking { background: var(--steel); }
+#tracking .section-title { color: var(--white); }
+#tracking .section-label { }
+#tracking .section-sub { color: var(--fog); }
+
+.tracking-layout {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+  margin-top: 48px;
+}
+.tracking-form-box {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px; padding: 32px;
+}
+.tracking-form-box h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px; font-weight: 800; text-transform: uppercase;
+  color: var(--white); margin-bottom: 24px;
+}
+.form-field { margin-bottom: 18px; }
+.form-field label {
+  display: block; font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--fog); margin-bottom: 7px;
+}
+.form-field input, .form-field select, .form-field textarea {
+  width: 100%; padding: 12px 16px;
+  background: rgba(255,255,255,0.06); border: 1.5px solid rgba(255,255,255,0.12);
+  border-radius: var(--r); font-family: 'Barlow', sans-serif;
+  font-size: 14px; color: var(--white); outline: none; transition: border 0.2s;
+}
+.form-field input::placeholder, .form-field textarea::placeholder { color: var(--iron); }
+.form-field input:focus, .form-field select:focus, .form-field textarea:focus { border-color: var(--orange); }
+.form-field select option { background: var(--steel); color: var(--white); }
+.form-field textarea { resize: vertical; min-height: 90px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+.order-result {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px; padding: 32px;
+}
+.order-result h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px; font-weight: 800; text-transform: uppercase;
+  color: var(--white); margin-bottom: 24px;
+}
+.track-input-row {
+  display: flex; gap: 10px; margin-bottom: 28px;
+}
+.track-input-row input {
+  flex: 1; padding: 12px 16px;
+  background: rgba(255,255,255,0.06); border: 1.5px solid rgba(255,255,255,0.12);
+  border-radius: var(--r); font-family: 'Barlow', sans-serif;
+  font-size: 14px; color: var(--white); outline: none; transition: border 0.2s;
+}
+.track-input-row input:focus { border-color: var(--orange); }
+.track-input-row input::placeholder { color: var(--iron); }
+.btn-track {
+  padding: 12px 22px; background: var(--orange); color: white;
+  border: none; border-radius: var(--r);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; cursor: pointer; white-space: nowrap;
+  transition: all 0.2s;
+}
+.btn-track:hover { background: var(--orange2); }
+
+.order-timeline { display: none; }
+.order-timeline.visible { display: block; }
+.order-not-found { display: none; color: var(--red); font-size: 14px; margin-top: 12px; }
+.order-not-found.visible { display: block; }
+
+.timeline { position: relative; padding-left: 28px; }
+.timeline::before {
+  content: ''; position: absolute; left: 8px; top: 8px; bottom: 8px;
+  width: 2px; background: rgba(255,255,255,0.1);
+}
+.tl-step {
+  position: relative; margin-bottom: 24px;
+}
+.tl-dot {
+  position: absolute; left: -24px; top: 2px;
+  width: 16px; height: 16px; border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.2);
+  background: var(--steel);
+  display: flex; align-items: center; justify-content: center;
+}
+.tl-dot.done { background: var(--orange); border-color: var(--orange); }
+.tl-dot.done::after { content: ''; width: 6px; height: 6px; background: white; border-radius: 50%; }
+.tl-dot.current { background: var(--yellow); border-color: var(--yellow); animation: pulse 1.5s infinite; }
+.tl-dot.current::after { content: ''; width: 6px; height: 6px; background: var(--ink); border-radius: 50%; }
+.tl-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 15px; font-weight: 700; text-transform: uppercase;
+  color: var(--white); letter-spacing: 0.04em;
+}
+.tl-title.dim { color: var(--iron); }
+.tl-date { font-size: 12px; color: var(--iron); margin-top: 3px; }
+
+.order-info-box {
+  background: rgba(232,98,26,0.1); border: 1px solid rgba(232,98,26,0.25);
+  border-radius: var(--r); padding: 16px 20px; margin-bottom: 24px;
+}
+.order-info-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.order-info-row:last-child { margin-bottom: 0; }
+.oilabel { font-size: 12px; color: var(--fog); text-transform: uppercase; letter-spacing: 0.06em; }
+.oivalue { font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 700; color: var(--white); }
+
+/* Recent Orders */
+.recent-orders { margin-top: 20px; }
+.recent-order-item {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.07);
+  cursor: pointer; transition: all 0.2s;
+}
+.recent-order-item:hover .roi-id { color: var(--orange); }
+.roi-id { font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 700; color: var(--fog); }
+.roi-name { font-size: 12px; color: var(--iron); margin-top: 2px; }
+.roi-status {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; padding: 4px 10px; border-radius: 3px;
+}
+.s-confirmed { background: rgba(46,204,113,0.15); color: var(--green); }
+.s-processing { background: rgba(245,200,66,0.15); color: var(--yellow); }
+.s-shipped { background: rgba(232,98,26,0.15); color: var(--orange2); }
+.s-delivered { background: rgba(46,204,113,0.2); color: var(--green); }
+
+/* ══════════════════════════════════════════
+   PRICING PLANS
+   ══════════════════════════════════════════ */
+#pricing { background: var(--white); }
+.pricing-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px; margin-top: 48px;
+}
+.price-card {
+  border: 2px solid var(--chalk); border-radius: 8px;
+  padding: 36px 32px; position: relative; transition: all 0.3s;
+  background: white;
+}
+.price-card:hover { border-color: var(--orange); transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.08); }
+.price-card.featured {
+  border-color: var(--orange); background: var(--steel);
+  transform: scale(1.03);
+}
+.price-card.featured:hover { transform: scale(1.03) translateY(-4px); }
+.featured-tag {
+  position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+  background: var(--orange); color: white;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; padding: 5px 16px; border-radius: 100px;
+}
+.plan-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--orange); margin-bottom: 8px;
+}
+.plan-price {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 48px; font-weight: 900; color: var(--steel); line-height: 1;
+  margin-bottom: 4px;
+}
+.price-card.featured .plan-price { color: var(--white); }
+.plan-price sup { font-size: 24px; vertical-align: top; margin-top: 8px; }
+.plan-period { font-size: 13px; color: var(--iron); margin-bottom: 20px; }
+.price-card.featured .plan-period { color: var(--fog); }
+.plan-desc { font-size: 14px; color: var(--concrete); line-height: 1.6; margin-bottom: 24px; }
+.price-card.featured .plan-desc { color: var(--fog); }
+.plan-features { list-style: none; margin-bottom: 32px; }
+.plan-features li {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 14px; color: var(--concrete); padding: 7px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.price-card.featured .plan-features li { color: var(--fog); border-color: rgba(255,255,255,0.08); }
+.plan-features li::before { content: '→'; color: var(--orange); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+.btn-plan {
+  width: 100%; padding: 13px; border: 2px solid var(--steel);
+  border-radius: var(--r); background: transparent; color: var(--steel);
+  font-family: 'Barlow Condensed', sans-serif; font-size: 15px;
+  font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  cursor: pointer; transition: all 0.2s; text-decoration: none;
+  display: block; text-align: center;
+}
+.btn-plan:hover { background: var(--steel); color: white; }
+.price-card.featured .btn-plan { border-color: var(--orange); background: var(--orange); color: white; }
+.price-card.featured .btn-plan:hover { background: var(--orange2); border-color: var(--orange2); }
+
+/* ══════════════════════════════════════════
+   WHY US / FEATURES
+   ══════════════════════════════════════════ */
+#why { background: var(--chalk); }
+.features-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 28px; margin-top: 48px;
+}
+.feat-card {
+  padding: 32px 28px;
+  border-top: 3px solid transparent;
+  background: white; transition: all 0.3s;
+  border-radius: 4px;
+}
+.feat-card:hover { border-top-color: var(--orange); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+.feat-icon { font-size: 38px; margin-bottom: 16px; }
+.feat-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px; font-weight: 800; text-transform: uppercase;
+  color: var(--steel); margin-bottom: 10px;
+}
+.feat-desc { font-size: 14px; color: var(--concrete); line-height: 1.7; }
+
+/* ══════════════════════════════════════════
+   CONTACT
+   ══════════════════════════════════════════ */
+#contact { background: var(--ink); }
+#contact .section-title { color: var(--white); }
+#contact .section-sub { color: var(--fog); }
+.contact-layout {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 64px; margin-top: 48px;
+}
+.contact-info { }
+.contact-item {
+  display: flex; gap: 18px; margin-bottom: 32px;
+}
+.contact-icon {
+  width: 48px; height: 48px; background: rgba(232,98,26,0.15);
+  border: 1px solid rgba(232,98,26,0.3); border-radius: var(--r);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; flex-shrink: 0;
+}
+.contact-label {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--orange); margin-bottom: 5px;
+}
+.contact-val { font-size: 16px; color: var(--white); font-weight: 500; }
+.contact-val a { color: var(--white); text-decoration: none; }
+.contact-val a:hover { color: var(--orange); }
+.contact-note { font-size: 13px; color: var(--iron); margin-top: 3px; }
+
+.hours-table { margin-top: 36px; }
+.hours-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 16px; font-weight: 800; text-transform: uppercase;
+  color: var(--white); margin-bottom: 14px; letter-spacing: 0.06em;
+}
+.hours-row {
+  display: flex; justify-content: space-between;
+  padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+  font-size: 14px;
+}
+.hours-day { color: var(--fog); }
+.hours-time { color: var(--white); font-weight: 500; }
+.hours-time.closed { color: var(--red); }
+
+.contact-form-box {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 8px; padding: 36px;
+}
+.contact-form-box h3 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 22px; font-weight: 800; text-transform: uppercase;
+  color: var(--white); margin-bottom: 24px; letter-spacing: 0.04em;
+}
+.btn-send {
+  width: 100%; padding: 14px;
+  background: var(--orange); color: white; border: none;
+  border-radius: var(--r); font-family: 'Barlow Condensed', sans-serif;
+  font-size: 16px; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; cursor: pointer; transition: all 0.2s;
+}
+.btn-send:hover { background: var(--orange2); }
+
+/* ══════════════════════════════════════════
+   LEGAL / FOOTER
+   ══════════════════════════════════════════ */
+#legal {
+  background: rgba(255,255,255,0.03);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 40px 5vw;
+}
+.legal-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px; margin-bottom: 32px;
+}
+.legal-block h4 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--orange); margin-bottom: 10px;
+}
+.legal-block p { font-size: 12px; color: var(--iron); line-height: 1.7; }
+.footer-bottom {
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 14px;
+  padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.06);
+  font-size: 12px; color: var(--iron);
+}
+.footer-logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px; font-weight: 900; color: var(--white);
+}
+.footer-logo span { color: var(--orange); }
+
+/* ══════════════════════════════════════════
+   TOAST / MODAL
+   ══════════════════════════════════════════ */
+.toast {
+  position: fixed; bottom: 28px; right: 28px; z-index: 9999;
+  padding: 14px 22px; border-radius: 6px;
+  font-size: 14px; font-weight: 600;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  display: flex; align-items: center; gap: 10px;
+  animation: toastIn 0.4s cubic-bezier(0.34,1.56,0.64,1);
+  max-width: 340px;
+}
+.toast.success { background: var(--green); color: white; }
+.toast.info { background: var(--orange); color: white; }
+.toast.error { background: var(--red); color: white; }
+
+/* Modal */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(4px); z-index: 888;
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px; animation: fadeIn 0.2s ease;
+}
+.modal {
+  background: var(--white); border-radius: 10px;
+  padding: 40px; max-width: 500px; width: 100%;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.3);
+  animation: slideUp 0.3s ease; position: relative;
+}
+.modal-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 24px; font-weight: 900; text-transform: uppercase;
+  color: var(--steel); margin-bottom: 6px;
+}
+.modal-sub { font-size: 14px; color: var(--iron); margin-bottom: 28px; }
+.modal-close {
+  position: absolute; top: 16px; right: 16px;
+  width: 32px; height: 32px; border: none; background: var(--chalk);
+  border-radius: 50%; font-size: 18px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; color: var(--concrete);
+}
+.modal-close:hover { background: var(--fog); }
+.modal-id {
+  background: linear-gradient(135deg, var(--steel), var(--concrete));
+  color: white; padding: 14px 20px; border-radius: 6px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 22px; font-weight: 900; letter-spacing: 0.1em;
+  text-align: center; margin-bottom: 20px;
+}
+.modal-detail { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--chalk); font-size: 14px; }
+.modal-detail:last-child { border-bottom: none; }
+.md-label { color: var(--iron); }
+.md-val { font-weight: 600; color: var(--steel); }
+
+/* ══════════════════════════════════════════
+   ANIMATIONS
+   ══════════════════════════════════════════ */
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+@keyframes pulse { 0%,100%{box-shadow:0 0 0 0 rgba(245,200,66,0.4)} 50%{box-shadow:0 0 0 8px rgba(245,200,66,0)} }
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+@keyframes slideUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+@keyframes toastIn { from{opacity:0;transform:translateX(40px) scale(0.9)} to{opacity:1;transform:translateX(0) scale(1)} }
+@keyframes fadeInUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+.fade-in-up { animation: fadeInUp 0.6s ease backwards; }
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════════════ */
+@media (max-width: 900px) {
+  #hero { grid-template-columns: 1fr; }
+  .hero-right { display: none; }
+  .tracking-layout { grid-template-columns: 1fr; }
+  .contact-layout { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .price-card.featured { transform: scale(1); }
+  .hero-stats { gap: 24px; }
+  section { padding: 70px 5vw; }
+}
+@media (max-width: 600px) {
+  .form-row { grid-template-columns: 1fr; }
+  .hero-actions { flex-direction: column; }
+  .hero-stats { flex-wrap: wrap; gap: 20px; }
+  .pricing-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════ NAV ══════════ -->
+<nav id="navbar">
+  <div class="nav-logo">
+    🏗️ Build<span>Co</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#materials">Materials</a></li>
+    <li><a href="#tracking">Orders</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#why">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#tracking" class="nav-cta">Place Order</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#hero" onclick="closeMenu()">Home</a>
+  <a href="#materials" onclick="closeMenu()">Materials</a>
+  <a href="#tracking" onclick="closeMenu()">Orders</a>
+  <a href="#pricing" onclick="closeMenu()">Pricing</a>
+  <a href="#why" onclick="closeMenu()">About</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+</div>
+
+<!-- ══════════ HERO ══════════ -->
+<section id="hero">
+  <div class="hero-left fade-in-up">
+    <div class="hero-badge">✦ Est. 2008 — Trusted Supplier</div>
+    <h1 class="hero-title">
+      BUILD<br/>
+      WITH THE<br/>
+      <em>STRONGEST</em><br/>
+      MATERIALS
+    </h1>
+    <p class="hero-desc">
+      Premium cement, structural steel, aggregates, timber & more — sourced directly, delivered fast. Serving contractors, developers, and builders across the region.
+    </p>
+    <div class="hero-actions">
+      <a href="#materials" class="btn btn-primary">View All Materials →</a>
+      <a href="#tracking" class="btn btn-outline">Place an Order</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hstat-num" id="counter-projects">0</div>
+        <div class="hstat-label">Projects Supplied</div>
+      </div>
+      <div>
+        <div class="hstat-num" id="counter-products">0</div>
+        <div class="hstat-label">Product SKUs</div>
+      </div>
+      <div>
+        <div class="hstat-num" id="counter-years">0</div>
+        <div class="hstat-label">Years in Business</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-materials-visual">
+      <div class="material-stack">
+        <div class="mat-block"><span class="big-icon">🏗️</span>CEMENT</div>
+        <div class="mat-block"><span class="big-icon">⚙️</span>STEEL</div>
+        <div class="mat-block"><span class="big-icon">🪨</span>AGGREGATES</div>
+        <div class="mat-block"><span class="big-icon">🪵</span>TIMBER</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ MATERIALS ══════════ -->
+<section id="materials">
+  <div class="section-label">Our Catalogue</div>
+  <h2 class="section-title">Materials & Pricing</h2>
+  <p class="section-sub">All prices are per standard unit. Bulk discounts available for orders over 50 units. Prices updated weekly.</p>
+  <div class="materials-search">
+    <input type="text" id="mat-search" placeholder="🔍 Search materials, grades, brands..." oninput="filterProducts()"/>
+  </div>
+  <div class="filter-tabs" id="filter-tabs">
+    <button class="filter-tab active" data-cat="All" onclick="filterCat(this)">All</button>
+    <button class="filter-tab" data-cat="Cement" onclick="filterCat(this)">Cement</button>
+    <button class="filter-tab" data-cat="Steel" onclick="filterCat(this)">Steel</button>
+    <button class="filter-tab" data-cat="Aggregates" onclick="filterCat(this)">Aggregates</button>
+    <button class="filter-tab" data-cat="Timber" onclick="filterCat(this)">Timber</button>
+    <button class="filter-tab" data-cat="Blocks" onclick="filterCat(this)">Blocks & Bricks</button>
+    <button class="filter-tab" data-cat="Roofing" onclick="filterCat(this)">Roofing</button>
+    <button class="filter-tab" data-cat="Plumbing" onclick="filterCat(this)">Plumbing</button>
+  </div>
+  <div class="products-grid" id="products-grid">
+    <!-- Rendered by JS -->
+  </div>
+</section>
+
+<!-- ══════════ ORDER TRACKING ══════════ -->
+<section id="tracking">
+  <div class="section-label">Order Management</div>
+  <h2 class="section-title">Place & Track Orders</h2>
+  <p class="section-sub">Submit a new order or check the status of an existing one using your order ID.</p>
+
+  <div class="tracking-layout">
+    <!-- Place Order -->
+    <div class="tracking-form-box">
+      <h3>📦 Place New Order</h3>
+      <div class="form-row">
+        <div class="form-field">
+          <label>Full Name *</label>
+          <input type="text" id="o-name" placeholder="John Builder"/>
+        </div>
+        <div class="form-field">
+          <label>Phone *</label>
+          <input type="tel" id="o-phone" placeholder="+1 555 000 0000"/>
+        </div>
+      </div>
+      <div class="form-field">
+        <label>Email Address</label>
+        <input type="email" id="o-email" placeholder="john@contractor.com"/>
+      </div>
+      <div class="form-field">
+        <label>Delivery Address *</label>
+        <input type="text" id="o-address" placeholder="123 Construction Site, City"/>
+      </div>
+      <div class="form-row">
+        <div class="form-field">
+          <label>Material *</label>
+          <select id="o-material">
+            <option value="">— Select Material —</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label>Quantity *</label>
+          <input type="number" id="o-qty" placeholder="1" min="1"/>
+        </div>
+      </div>
+      <div class="form-field">
+        <label>Special Instructions</label>
+        <textarea id="o-notes" placeholder="Site access notes, preferred delivery window, etc."></textarea>
+      </div>
+      <button class="btn-track" style="width:100%;font-size:16px;margin-top:4px" onclick="placeOrder()">
+        ✅ Submit Order
+      </button>
+    </div>
+
+    <!-- Track Order -->
+    <div class="order-result">
+      <h3>🔍 Track Your Order</h3>
+      <div class="track-input-row">
+        <input type="text" id="track-input" placeholder="Enter Order ID (e.g. BC-000001)" style="text-transform:uppercase"/>
+        <button class="btn-track" onclick="trackOrder()">Track</button>
+      </div>
+
+      <div class="order-timeline" id="order-timeline">
+        <div class="order-info-box" id="order-info-box"></div>
+        <div class="timeline" id="timeline-steps"></div>
+      </div>
+      <div class="order-not-found" id="order-not-found">
+        ⚠️ Order not found. Please check your Order ID and try again.
+      </div>
+
+      <div class="recent-orders">
+        <div style="font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--fog);margin-bottom:10px;">
+          Recent Orders
+        </div>
+        <div id="recent-orders-list">
+          <div style="font-size:13px;color:var(--iron);padding:12px 0">No orders yet. Place your first order!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PRICING PLANS ══════════ -->
+<section id="pricing">
+  <div class="section-label">Pricing Plans</div>
+  <h2 class="section-title">Choose Your Supply Plan</h2>
+  <p class="section-sub">Whether you're a one-time buyer or a repeat contractor — we have a plan that saves you more as you build more.</p>
+  <div class="pricing-grid">
+    <div class="price-card">
+      <div class="plan-name">Retail</div>
+      <div class="plan-price"><sup>$</sup>0</div>
+      <div class="plan-period">No membership required</div>
+      <div class="plan-desc">Perfect for one-off purchases, small renovations, or testing our supply chain.</div>
+      <ul class="plan-features">
+        <li>Standard catalogue pricing</li>
+        <li>Minimum order: 1 unit</li>
+        <li>Standard 3–5 day delivery</li>
+        <li>Email order confirmations</li>
+        <li>Basic order tracking</li>
+      </ul>
+      <a href="#tracking" class="btn-plan">Start Ordering</a>
+    </div>
+    <div class="price-card featured">
+      <div class="featured-tag">⭐ Most Popular</div>
+      <div class="plan-name">Contractor</div>
+      <div class="plan-price"><sup>$</sup>199</div>
+      <div class="plan-period">per month · billed annually</div>
+      <div class="plan-desc">For active builders and contractors who order regularly and need priority access.</div>
+      <ul class="plan-features">
+        <li>Up to 15% off all materials</li>
+        <li>Priority 24–48 hr delivery</li>
+        <li>Dedicated account manager</li>
+        <li>Net-30 payment terms</li>
+        <li>Bulk order scheduling</li>
+        <li>Site delivery coordination</li>
+      </ul>
+      <a href="#contact" class="btn-plan">Get Started</a>
+    </div>
+    <div class="price-card">
+      <div class="plan-name">Enterprise</div>
+      <div class="plan-price">Custom</div>
+      <div class="plan-period">volume-based pricing</div>
+      <div class="plan-desc">For large developers, government projects, and industrial construction at scale.</div>
+      <ul class="plan-features">
+        <li>Negotiated volume pricing</li>
+        <li>Same-day delivery available</li>
+        <li>Custom supply agreements</li>
+        <li>On-site material planning</li>
+        <li>Dedicated logistics team</li>
+        <li>Quality certification docs</li>
+      </ul>
+      <a href="#contact" class="btn-plan">Contact Sales</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ WHY US ══════════ -->
+<section id="why">
+  <div class="section-label">Why BuildCo</div>
+  <h2 class="section-title">Built on Trust,<br/>Delivered on Time</h2>
+  <div class="features-grid">
+    <div class="feat-card">
+      <div class="feat-icon">🚚</div>
+      <div class="feat-title">Fast Delivery</div>
+      <div class="feat-desc">Our fleet covers the region with standard 3–5 day delivery and express 24-hour options for urgent projects.</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">🏆</div>
+      <div class="feat-title">Certified Quality</div>
+      <div class="feat-desc">Every product carries manufacturer certification. Cement meets ASTM standards, steel is tested to grade.</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">📦</div>
+      <div class="feat-title">Large Stock</div>
+      <div class="feat-desc">Over 120 SKUs in warehouse stock at all times. No back-order surprises or project delays.</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">💰</div>
+      <div class="feat-title">Competitive Pricing</div>
+      <div class="feat-desc">Direct sourcing from manufacturers means we cut out the middleman and pass the savings on to you.</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">🤝</div>
+      <div class="feat-title">Expert Support</div>
+      <div class="feat-desc">Our team includes civil engineers and construction veterans who can advise on material selection for any project.</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">♻️</div>
+      <div class="feat-title">Sustainable Options</div>
+      <div class="feat-desc">We stock eco-rated materials including recycled aggregates, low-carbon cement blends, and FSC-certified timber.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CONTACT ══════════ -->
+<section id="contact">
+  <div class="section-label">Get In Touch</div>
+  <h2 class="section-title">Contact & Location</h2>
+  <p class="section-sub">Visit our yard, call our team, or send a message. We respond to all inquiries within 4 business hours.</p>
+
+  <div class="contact-layout">
+    <div class="contact-info">
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div>
+          <div class="contact-label">Phone</div>
+          <div class="contact-val"><a href="tel:+15550001234">+1 (555) 000-1234</a></div>
+          <div class="contact-note">Mon–Fri 7am–6pm, Sat 8am–2pm</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📧</div>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-val"><a href="mailto:orders@buildco.com">orders@buildco.com</a></div>
+          <div class="contact-note">Quotes, bulk orders, invoicing</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div>
+          <div class="contact-label">Yard & Showroom</div>
+          <div class="contact-val">4800 Industrial Blvd, Suite 12<br/>Metro City, ST 90210</div>
+          <div class="contact-note">Large vehicle access available</div>
+        </div>
+      </div>
+      <div class="hours-table">
+        <div class="hours-title">Business Hours</div>
+        <div class="hours-row"><span class="hours-day">Monday – Friday</span><span class="hours-time">7:00 AM – 6:00 PM</span></div>
+        <div class="hours-row"><span class="hours-day">Saturday</span><span class="hours-time">8:00 AM – 2:00 PM</span></div>
+        <div class="hours-row"><span class="hours-day">Sunday</span><span class="hours-time closed">Closed</span></div>
+        <div class="hours-row"><span class="hours-day">Public Holidays</span><span class="hours-time closed">Closed</span></div>
+      </div>
+    </div>
+
+    <div class="contact-form-box">
+      <h3>📬 Send a Message</h3>
+      <div class="form-row">
+        <div class="form-field">
+          <label>Your Name</label>
+          <input type="text" id="c-name" placeholder="Jane Smith"/>
+        </div>
+        <div class="form-field">
+          <label>Company</label>
+          <input type="text" id="c-company" placeholder="Smith Builders Ltd."/>
+        </div>
+      </div>
+      <div class="form-field">
+        <label>Email</label>
+        <input type="email" id="c-email" placeholder="jane@smith.com"/>
+      </div>
+      <div class="form-field">
+        <label>Subject</label>
+        <select id="c-subject">
+          <option>Request a Quote</option>
+          <option>Bulk Order Inquiry</option>
+          <option>Contractor Plan</option>
+          <option>Technical Question</option>
+          <option>Delivery Issue</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label>Message</label>
+        <textarea id="c-message" rows="4" placeholder="Tell us about your project and requirements..."></textarea>
+      </div>
+      <button class="btn-send" onclick="sendContact()">Send Message →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ LEGAL / FOOTER ══════════ -->
+<footer id="legal" style="background:var(--ink)">
+  <div class="legal-grid">
+    <div class="legal-block">
+      <h4>🏢 Business Registration</h4>
+      <p>BuildCo Materials Inc. is a registered supplier. Business Reg No: BC-2008-04471. All transactions are governed by applicable local trade laws.</p>
+    </div>
+    <div class="legal-block">
+      <h4>📋 Terms of Sale</h4>
+      <p>All prices are subject to change without notice. Orders are confirmed only upon receipt of payment or approved credit. Minimum lead time applies.</p>
+    </div>
+    <div class="legal-block">
+      <h4>🔒 Privacy Policy</h4>
+      <p>We collect only the data needed to process your order. Your information is never sold or shared with third parties. Stored securely per applicable data laws.</p>
+    </div>
+    <div class="legal-block">
+      <h4>↩️ Returns & Warranty</h4>
+      <p>Unused materials may be returned within 14 days with original receipt. Damaged or defective items covered under manufacturer warranty. No returns on cut timber.</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-logo">🏗️ Build<span>Co</span></div>
+    <div>© 2025 BuildCo Materials Inc. All rights reserved.</div>
+    <div>Built for Vercel · Deployed with ❤️</div>
+  </div>
+</footer>
+
+<!-- ══════════ ORDER CONFIRM MODAL ══════════ -->
+<div class="modal-overlay" id="order-modal" style="display:none" onclick="closeModal(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModalDirect()">×</button>
+    <div class="modal-title">Order Confirmed!</div>
+    <div class="modal-sub">Save your Order ID to track your delivery status.</div>
+    <div class="modal-id" id="modal-order-id">BC-000000</div>
+    <div id="modal-details"></div>
+    <button class="btn-send" style="margin-top:24px" onclick="closeModalDirect()">Done — Got It!</button>
+  </div>
+</div>
+
+<script>
+// ═════════════════════════════════════════
+//  DATA
+// ═════════════════════════════════════════
+const PRODUCTS = [
+  { id:'P001', name:'Portland Cement', cat:'Cement', emoji:'🏗️', spec:'Grade 42.5N, 50kg bags. Suitable for general construction, foundations, slabs.', price:18.50, unit:'per bag', stock:85, max:100, bg:'#263238' },
+  { id:'P002', name:'Rapid Set Cement', cat:'Cement', emoji:'⚡', spec:'Fast-setting formula. Sets in 25 min. Ideal for post holes and repairs.', price:22.00, unit:'per bag', stock:42, max:60, bg:'#37474F' },
+  { id:'P003', name:'White Cement', cat:'Cement', emoji:'⬜', spec:'Premium white finish. 25kg bags. For decorative concrete and grout.', price:28.00, unit:'per bag', stock:20, max:50, bg:'#455A64' },
+  { id:'P004', name:'Deformed Rebar 12mm', cat:'Steel', emoji:'⚙️', spec:'Grade 60 high-yield deformed steel bars. 6m lengths. ASTM A615.', price:14.00, unit:'per bar', stock:500, max:500, bg:'#BF360C' },
+  { id:'P005', name:'Deformed Rebar 16mm', cat:'Steel', emoji:'🔩', spec:'Grade 60 deformed rebar for heavy structural applications. 6m lengths.', price:22.00, unit:'per bar', stock:320, max:400, bg:'#A93226' },
+  { id:'P006', name:'Steel I-Beam 150x75', cat:'Steel', emoji:'🏛️', spec:'Mild steel universal beam. 6m spans. For floor joists and frames.', price:185.00, unit:'per beam', stock:40, max:60, bg:'#7F2700' },
+  { id:'P007', name:'BRC Welded Mesh A10', cat:'Steel', emoji:'🔲', spec:'2400×6000mm sheets. Wire dia 10mm. 200mm grid. Slab reinforcement.', price:65.00, unit:'per sheet', stock:150, max:200, bg:'#5D4037' },
+  { id:'P008', name:'Crushed Stone 20mm', cat:'Aggregates', emoji:'🪨', spec:'Clean crushed granite. Well-graded for concrete mix and drainage.', price:48.00, unit:'per tonne', stock:80, max:100, bg:'#546E7A' },
+  { id:'P009', name:'River Sand (Coarse)', cat:'Aggregates', emoji:'⛱️', spec:'Washed coarse river sand for concrete mixing. Low clay content.', price:35.00, unit:'per tonne', stock:95, max:100, bg:'#78909C' },
+  { id:'P010', name:'Filling Sand (Fine)', cat:'Aggregates', emoji:'🏖️', spec:'Fine-grade filling sand. Ideal for block laying and backfill.', price:28.00, unit:'per tonne', stock:100, max:100, bg:'#607D8B' },
+  { id:'P011', name:'Hardwood Timber 4"×2"', cat:'Timber', emoji:'🪵', spec:'Kiln-dried hardwood. 3m lengths. Suitable for joinery and structural framing.', price:12.00, unit:'per length', stock:300, max:400, bg:'#4E342E' },
+  { id:'P012', name:'Plywood 18mm', cat:'Timber', emoji:'🟫', spec:'Construction-grade plywood. 1220×2440mm sheets. Formwork & flooring.', price:38.00, unit:'per sheet', stock:120, max:200, bg:'#3E2723' },
+  { id:'P013', name:'Concrete Hollow Block 6"', cat:'Blocks', emoji:'🧱', spec:'Standard 6-inch hollow concrete block. 400×200×150mm. 30N/mm².', price:1.80, unit:'per block', stock:5000, max:6000, bg:'#546E7A' },
+  { id:'P014', name:'Clay Brick (Common)', cat:'Blocks', emoji:'🔴', spec:'Standard clay bricks. 230×110×76mm. Suitable for external walling.', price:0.55, unit:'per brick', stock:0, max:5000, bg:'#B71C1C' },
+  { id:'P015', name:'Interlocking Paver 60mm', cat:'Blocks', emoji:'🔷', spec:'Concrete interlocking pavers. 200×100×60mm. Various colours available.', price:2.20, unit:'per piece', stock:2000, max:3000, bg:'#37474F' },
+  { id:'P016', name:'Corrugated Iron Sheet', cat:'Roofing', emoji:'🏠', spec:'Galvanized corrugated roofing. 0.47mm BMT. 3m × 762mm effective.', price:28.00, unit:'per sheet', stock:350, max:400, bg:'#455A64' },
+  { id:'P017', name:'Roof Battens 25×50mm', cat:'Roofing', emoji:'📏', spec:'Pressure-treated pine battens. 3.6m lengths. For tiling substrates.', price:5.50, unit:'per length', stock:600, max:800, bg:'#4E342E' },
+  { id:'P018', name:'uPVC Pressure Pipe 110mm', cat:'Plumbing', emoji:'🚿', spec:'Class D uPVC pressure pipe. 6m lengths. For sewer and drainage.', price:32.00, unit:'per length', stock:180, max:250, bg:'#1B5E20' },
+];
+
+let orders = JSON.parse(localStorage.getItem('bc_orders') || '[]');
+let activeCategory = 'All';
+let orderCounter = orders.length;
+
+// ═════════════════════════════════════════
+//  INIT
+// ═════════════════════════════════════════
+window.addEventListener('DOMContentLoaded', () => {
+  renderProducts();
+  populateOrderSelect();
+  renderRecentOrders();
+  animateCounters();
+  handleScroll();
+});
+
+window.addEventListener('scroll', handleScroll);
+
+function handleScroll() {
+  const links = document.querySelectorAll('.nav-links a');
+  const sections = ['hero','materials','tracking','pricing','why','contact'];
+  const scrollY = window.scrollY + 100;
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    if (scrollY >= el.offsetTop && scrollY < el.offsetTop + el.offsetHeight) {
+      links.forEach(l => l.classList.remove('active'));
+      const match = document.querySelector(`.nav-links a[href="#${id}"]`);
+      if (match) match.classList.add('active');
+    }
+  });
+}
+
+// ═════════════════════════════════════════
+//  PRODUCTS
+// ═════════════════════════════════════════
+function renderProducts() {
+  const search = document.getElementById('mat-search').value.toLowerCase();
+  const grid = document.getElementById('products-grid');
+
+  const filtered = PRODUCTS.filter(p => {
+    const matchCat = activeCategory === 'All' || p.cat === activeCategory;
+    const matchSearch = p.name.toLowerCase().includes(search) ||
+                        p.cat.toLowerCase().includes(search) ||
+                        p.spec.toLowerCase().includes(search);
+    return matchCat && matchSearch;
+  });
+
+  if (!filtered.length) {
+    grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--iron)">
+      <div style="font-size:48px;margin-bottom:16px">🔍</div>
+      <div style="font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:700;text-transform:uppercase;color:var(--concrete)">No materials found</div>
+      <div style="font-size:14px;margin-top:8px">Try a different search or category</div>
+    </div>`;
+    return;
+  }
+
+  grid.innerHTML = filtered.map((p, i) => {
+    const pct = Math.round((p.stock / p.max) * 100);
+    const stockLabel = p.stock === 0 ? 'Out of Stock' : p.stock < p.max * 0.25 ? 'Low Stock' : 'In Stock';
+    const badgeClass = p.stock === 0 ? 'badge-out' : p.stock < p.max * 0.25 ? 'badge-low' : 'badge-instock';
+    const fillColor = p.stock === 0 ? 'var(--red)' : p.stock < p.max * 0.25 ? 'var(--yellow)' : 'var(--green)';
+
+    return `
+    <div class="product-card" style="animation:fadeInUp 0.5s ease ${i*0.05}s backwards">
+      <div class="product-img" style="background:${p.bg}20">
+        <div class="product-img-inner" style="font-size:72px">${p.emoji}</div>
+        <div class="product-badge ${badgeClass}">${stockLabel}</div>
+      </div>
+      <div class="product-body">
+        <div class="product-category">${p.cat} · ${p.id}</div>
+        <div class="product-name">${p.name}</div>
+        <div class="product-spec">${p.spec}</div>
+        <div class="stock-bar">
+          <div class="stock-text">
+            <span>Stock Level</span>
+            <span>${p.stock > 0 ? p.stock + ' units' : 'Unavailable'}</span>
+          </div>
+          <div class="stock-track">
+            <div class="stock-fill" style="width:${pct}%;background:${fillColor}"></div>
+          </div>
+        </div>
+        <div class="product-footer">
+          <div>
+            <div class="product-price">$${p.price.toFixed(2)}</div>
+            <div class="product-unit">${p.unit}</div>
+          </div>
+          <button class="btn-order" ${p.stock===0?'disabled':''} onclick="quickOrder('${p.id}')">
+            ${p.stock===0 ? 'Out of Stock' : 'Order Now'}
+          </button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function filterCat(btn) {
+  document.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  activeCategory = btn.dataset.cat;
+  renderProducts();
+}
+
+function filterProducts() { renderProducts(); }
+
+function populateOrderSelect() {
+  const sel = document.getElementById('o-material');
+  sel.innerHTML = '<option value="">— Select Material —</option>' +
+    PRODUCTS.map(p => `<option value="${p.id}">${p.name} — $${p.price.toFixed(2)} ${p.unit}</option>`).join('');
+}
+
+function quickOrder(productId) {
+  document.getElementById('o-material').value = productId;
+  document.getElementById('tracking').scrollIntoView({ behavior: 'smooth' });
+  setTimeout(() => document.getElementById('o-name').focus(), 600);
+}
+
+// ═════════════════════════════════════════
+//  ORDER CRUD
+// ═════════════════════════════════════════
+function placeOrder() {
+  const name = v('o-name'), phone = v('o-phone');
+  const address = v('o-address'), material = v('o-material');
+  const qty = parseInt(document.getElementById('o-qty').value) || 0;
+
+  if (!name) return toast('Please enter your name', 'error');
+  if (!phone) return toast('Please enter your phone number', 'error');
+  if (!address) return toast('Please enter delivery address', 'error');
+  if (!material) return toast('Please select a material', 'error');
+  if (qty < 1) return toast('Please enter a valid quantity', 'error');
+
+  const product = PRODUCTS.find(p => p.id === material);
+  if (!product) return;
+  if (product.stock < qty) return toast(`Only ${product.stock} units available`, 'error');
+
+  orderCounter++;
+  const orderId = 'BC-' + String(orderCounter).padStart(6, '0');
+  const total = (product.price * qty).toFixed(2);
+
+  const order = {
+    id: orderId, name, phone,
+    email: v('o-email'), address,
+    material: product.name, productId: material,
+    qty, total, unit: product.unit,
+    notes: v('o-notes'),
+    status: 'Confirmed',
+    createdAt: new Date().toISOString(),
+    statusHistory: [
+      { status: 'Confirmed', date: new Date().toISOString() }
+    ]
+  };
+
+  orders.unshift(order);
+  localStorage.setItem('bc_orders', JSON.stringify(orders));
+
+  // Show modal
+  document.getElementById('modal-order-id').textContent = orderId;
+  document.getElementById('modal-details').innerHTML = `
+    <div class="modal-detail"><span class="md-label">Customer</span><span class="md-val">${name}</span></div>
+    <div class="modal-detail"><span class="md-label">Material</span><span class="md-val">${product.name}</span></div>
+    <div class="modal-detail"><span class="md-label">Quantity</span><span class="md-val">${qty} ${product.unit.replace('per ','')}</span></div>
+    <div class="modal-detail"><span class="md-label">Total</span><span class="md-val" style="color:var(--orange)">$${total}</span></div>
+    <div class="modal-detail"><span class="md-label">Delivery</span><span class="md-val">${address}</span></div>
+    <div class="modal-detail"><span class="md-label">Est. Delivery</span><span class="md-val">${estDelivery()}</span></div>
+  `;
+  document.getElementById('order-modal').style.display = 'flex';
+
+  // Clear form
+  ['o-name','o-phone','o-email','o-address','o-qty','o-notes'].forEach(id => document.getElementById(id).value = '');
+  document.getElementById('o-material').selectedIndex = 0;
+
+  renderRecentOrders();
+}
+
+function trackOrder() {
+  const id = document.getElementById('track-input').value.trim().toUpperCase();
+  const timeline = document.getElementById('order-timeline');
+  const notFound = document.getElementById('order-not-found');
+
+  if (!id) return toast('Enter an Order ID to track', 'error');
+
+  const order = orders.find(o => o.id === id);
+  notFound.classList.remove('visible');
+  timeline.classList.remove('visible');
+
+  if (!order) {
+    notFound.classList.add('visible');
+    return;
+  }
+
+  const steps = [
+    { key:'Confirmed', label:'Order Confirmed', icon:'✅' },
+    { key:'Processing', label:'Processing & Packing', icon:'📦' },
+    { key:'Shipped', label:'Out for Delivery', icon:'🚚' },
+    { key:'Delivered', label:'Delivered', icon:'🏠' },
+  ];
+
+  const currentIdx = steps.findIndex(s => s.key === order.status);
+
+  document.getElementById('order-info-box').innerHTML = `
+    <div class="order-info-row"><span class="oilabel">Order ID</span><span class="oivalue">${order.id}</span></div>
+    <div class="order-info-row"><span class="oilabel">Customer</span><span class="oivalue">${order.name}</span></div>
+    <div class="order-info-row"><span class="oilabel">Material</span><span class="oivalue">${order.material} × ${order.qty}</span></div>
+    <div class="order-info-row"><span class="oilabel">Total</span><span class="oivalue">$${order.total}</span></div>
+  `;
+
+  document.getElementById('timeline-steps').innerHTML = steps.map((s, i) => {
+    const isDone = i < currentIdx;
+    const isCurrent = i === currentIdx;
+    const dateEntry = order.statusHistory?.find(h => h.status === s.key);
+    const dateStr = dateEntry ? fmtDate(dateEntry.date) : '';
+    return `
+    <div class="tl-step">
+      <div class="tl-dot ${isDone?'done':isCurrent?'current':''}"></div>
+      <div class="tl-title ${!isDone&&!isCurrent?'dim':''}">${s.icon} ${s.label}</div>
+      <div class="tl-date">${dateStr || (isDone||isCurrent ? 'In progress' : 'Pending')}</div>
+    </div>`;
+  }).join('');
+
+  timeline.classList.add('visible');
+}
+
+function renderRecentOrders() {
+  const container = document.getElementById('recent-orders-list');
+  if (!orders.length) {
+    container.innerHTML = `<div style="font-size:13px;color:var(--iron);padding:12px 0">No orders yet. Place your first order!</div>`;
+    return;
+  }
+  container.innerHTML = orders.slice(0, 5).map(o => `
+    <div class="recent-order-item" onclick="loadTrack('${o.id}')">
+      <div>
+        <div class="roi-id">${o.id}</div>
+        <div class="roi-name">${o.material} × ${o.qty} · ${o.name}</div>
+      </div>
+      <span class="roi-status s-${o.status.toLowerCase()}">${o.status}</span>
+    </div>
+  `).join('');
+}
+
+function loadTrack(id) {
+  document.getElementById('track-input').value = id;
+  trackOrder();
+}
+
+// ═════════════════════════════════════════
+//  CONTACT
+// ═════════════════════════════════════════
+function sendContact() {
+  const name = v('c-name'), email = v('c-email'), msg = v('c-message');
+  if (!name) return toast('Please enter your name', 'error');
+  if (!email || !email.includes('@')) return toast('Enter a valid email', 'error');
+  if (!msg) return toast('Please write a message', 'error');
+  toast('✅ Message sent! We\'ll reply within 4 business hours.', 'success');
+  ['c-name','c-company','c-email','c-message'].forEach(id => document.getElementById(id).value = '');
+}
+
+// ═════════════════════════════════════════
+//  MODAL
+// ═════════════════════════════════════════
+function closeModal(e) {
+  if (e.target === document.getElementById('order-modal')) closeModalDirect();
+}
+function closeModalDirect() {
+  document.getElementById('order-modal').style.display = 'none';
+}
+
+// ═════════════════════════════════════════
+//  NAV MOBILE
+// ═════════════════════════════════════════
+function toggleMenu() {
+  document.getElementById('mobile-menu').classList.toggle('open');
+}
+function closeMenu() {
+  document.getElementById('mobile-menu').classList.remove('open');
+}
+
+// ═════════════════════════════════════════
+//  COUNTERS
+// ═════════════════════════════════════════
+function animateCounters() {
+  animCount('counter-projects', 1250, 2000);
+  animCount('counter-products', 120, 1800);
+  animCount('counter-years', 17, 1400);
+}
+
+function animCount(id, target, duration) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  let start = null;
+  const step = (ts) => {
+    if (!start) start = ts;
+    const pct = Math.min((ts - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - pct, 3);
+    el.textContent = Math.floor(ease * target).toLocaleString() + (pct < 1 ? '' : (target >= 1000 ? '+' : '+'));
+    if (pct < 1) requestAnimationFrame(step);
+    else el.textContent = target.toLocaleString() + '+';
+  };
+  setTimeout(() => requestAnimationFrame(step), 400);
+}
+
+// ═════════════════════════════════════════
+//  HELPERS
+// ═════════════════════════════════════════
+let toastTimer;
+function toast(msg, type='info') {
+  document.querySelectorAll('.toast').forEach(t => t.remove());
+  const t = document.createElement('div');
+  t.className = `toast ${type}`;
+  t.textContent = msg;
+  document.body.appendChild(t);
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t && t.remove(), 3500);
+}
+
+function v(id) { return (document.getElementById(id)?.value || '').trim(); }
+function fmtDate(iso) {
+  return new Date(iso).toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric', hour:'2-digit', minute:'2-digit' });
+}
+function estDelivery() {
+  const d = new Date(); d.setDate(d.getDate() + 4);
+  return d.toLocaleDateString('en-US', { weekday:'long', month:'long', day:'numeric' });
+}
+</script>
+</body>
+</html>
